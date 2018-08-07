@@ -63,7 +63,7 @@ Add the util.js file to the app/helper folder
             // this.app => application Object
         },
     }
-在Controller中可以如下使用
+in Controller
 
     DemoController extends Controller{
         async index(){

@@ -1,6 +1,6 @@
 {
   "name": "egg-helper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "eggPlugin": {
     "name": "helper"
@@ -35,9 +35,13 @@
     "autod": "autod"
   },
   "files": [
+    "index.js",
+    "index.d.ts",
     "app.js",
     "agent.js",
-    "config"
+    "config",
+    "app",
+    "lib"
   ],
   "ci": {
     "version": "8, 9"
