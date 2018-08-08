@@ -1,10 +1,16 @@
 'use strict';
 
-const Controller = require('egg').Controller;
+const { Controller } = require('egg');
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.body = 'hi, ' + this.app.plugins.helper.name;
+    const { ctx, app } = this;
+    ctx.body = 'hi, ' + app.plugins.helper.name;
+  }
+
+  async getUtil() {
+    const { ctx } = this;
+    ctx.body = ctx.helper.util.foo();
   }
 }
 

@@ -35,25 +35,20 @@
     "autod": "autod"
   },
   "files": [
-    "index.js",
-    "index.d.ts",
-    "app.js",
-    "agent.js",
-    "config",
-    "app",
-    "lib"
+    "app/extend",
+    "config"
   ],
   "ci": {
     "version": "8, 9"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-helper.git"
+    "url": "git+https://github.com/yuezm/egg-helper.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/yuezm/egg-helper/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-helper#readme",
+  "homepage": "https://github.com/yuezm/egg-helper#readme",
   "author": "yuezm",
   "license": "MIT"
 }

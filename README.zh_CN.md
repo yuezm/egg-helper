@@ -55,10 +55,10 @@ exports.helper = {
 
 ## 使用场景
 
-- Why and What: 将helper目录下的方法全部挂载在Helper上，方便工具函数维护及使用
+- Why and What: 将helper目录下的方法全部挂载在Helper上，将help分成不同文件，方便维护
 - How:
     <!-- example here -->
-    在app/helper文件夹中增加 util.js文件
+    在app/helper文件夹中增加 util.js文件 必须参照以下格式
 
         // app/helper/util.js
         module.exports={

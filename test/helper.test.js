@@ -20,4 +20,11 @@ describe('test/helper.test.js', () => {
       .expect('hi, helper')
       .expect(200);
   });
+
+  it('should GET /util', () => {
+    return app.httpRequest()
+      .get('/util')
+      .expect('hello helper')
+      .expect(200);
+  });
 });

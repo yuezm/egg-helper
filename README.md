@@ -23,6 +23,7 @@
 <!--
 Description here.
 -->
+[egg-helper中文文档](README.zh_CN.md)
 
 ## Install
 
@@ -51,7 +52,7 @@ exports.helper = {
 see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
-
+**Divide egg's app/extend/help.js method into different files for easy maintenance**
 <!-- example here -->
 Add the util.js file to the app/helper folder
 
