@@ -61,13 +61,15 @@ exports.helper = {
     在app/helper文件夹中增加 util.js文件 必须参照以下格式
 
         // app/helper/util.js
-        module.exports={
-            foo(param) {
-                // this 是 helper 对象，在其中可以调用其他 helper 方法
-                // this.ctx => context 对象
-                // this.app => application 对象
-            },
-        }
+        module.exports = app => {
+            return {
+                foo() {
+                    // app is Application的实例
+                    console.log(app);
+                    return 'hello helper';
+                },
+            };
+        };
     在Controller中可以如下使用
 
         DemoController extends Controller{

@@ -57,13 +57,15 @@ see [config/config.default.js](config/config.default.js) for more detail.
 Add the util.js file to the app/helper folder
 
     // app/helper/util.js
-    module.exports={
-        foo(param) {
-            // this  it`s a helper Object，In which other helper methods can be called
-            // this.ctx => context Object
-            // this.app => application Object
-        },
-    }
+    module.exports = app => {
+        return {
+            foo() {
+                // app is Application Object
+                console.log(app);
+                return 'hello helper';
+            },
+        };
+    };
 in Controller
 
     DemoController extends Controller{
