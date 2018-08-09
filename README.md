@@ -46,7 +46,7 @@ exports.helper = {
 ```js
 // {app_root}/config/config.default.js
 exports.helper = {
-    loadName:'helper' //Provide a configurable mount name,default helper,then use ctx[loadName][filename][function]
+
 };
 ```
 
@@ -55,7 +55,7 @@ see [config/config.default.js](config/config.default.js) for more detail.
 ## Example
 **Divide egg's app/extend/help.js method into different files for easy maintenance**
 <!-- example here -->
-Add the util.js file to the app/helper folder
+Add the util1.js file to the app/helper folder
 
     // app/helper/util.js
     module.exports = app => {
@@ -67,14 +67,24 @@ Add the util.js file to the app/helper folder
             },
         };
     };
+    aslo you can use multiple levels of directories like app/helper/util/util1.js
+    // app/helper/util/util1.js
+    module.exports = app => {
+            return {
+                foo1() {
+                    // app is Application Object
+                    console.log(app);
+                    return 'hello helper';
+                },
+            };
+        };
 in Controller
 
     DemoController extends Controller{
         async index(){
             this.ctx.helper.util.foo(); // You can access your method through the following path
-            // if you configuration the loadName,then use this.ctx[loadName].util.foo here
+            this.ctx.helper.util.util1.foo1();// If you use a multi-level directory,You can access your method through the following path
         }
-
     }
 
 ## Questions & Suggestions

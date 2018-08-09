@@ -5,4 +5,5 @@ module.exports = app => {
 
   router.get('/', controller.home.index);
   router.get('/util', controller.home.getUtil);
+  router.get('/helper', controller.home.getOriginHelper);
 };

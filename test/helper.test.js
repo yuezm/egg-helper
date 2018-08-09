@@ -27,4 +27,11 @@ describe('test/helper.test.js', () => {
       .expect('hello helper')
       .expect(200);
   });
+
+  it('should GET /helper', () => {
+    return app.httpRequest()
+      .get('/helper')
+      .expect('hello helper')
+      .expect(200);
+  });
 });
