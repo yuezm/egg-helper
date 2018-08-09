@@ -2,9 +2,11 @@
 const path = require('path');
 
 module.exports = app => {
-  const dir = path.join(app.config.baseDir, 'app/helper');
-  app.loader.loadToContext(dir, 'helper', {
-    caseStyle: 'lower',
+  const dir = app.loader.getLoadUnits().map(unit => {
+    return path.join(unit.path, 'app/helper');
+  });
+  const loadName = app.config.helper.loadName || 'helper';
+  app.loader.loadToContext(dir, loadName, {
     inject: app,
   });
 };

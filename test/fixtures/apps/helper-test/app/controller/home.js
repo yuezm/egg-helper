@@ -10,7 +10,7 @@ class HomeController extends Controller {
 
   async getUtil() {
     const { ctx } = this;
-    ctx.body = ctx.helper.util.foo();
+    ctx.body = ctx.util.util.foo();
   }
 }
 

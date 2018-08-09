@@ -46,6 +46,7 @@ exports.helper = {
 ```js
 // {app_root}/config/config.default.js
 exports.helper = {
+    loadName:'helper' //Provide a configurable mount name,default helper,then use ctx[loadName][filename][function]
 };
 ```
 
@@ -71,6 +72,7 @@ in Controller
     DemoController extends Controller{
         async index(){
             this.ctx.helper.util.foo(); // You can access your method through the following path
+            // if you configuration the loadName,then use this.ctx[loadName].util.foo here
         }
 
     }

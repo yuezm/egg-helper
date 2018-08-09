@@ -52,7 +52,14 @@ exports.helper = {
   package: 'egg-helper',
 };
 ```
+## 配置
 
+```js
+// {app_root}/config/config.default.js
+exports.helper = {
+    loadName:'util' //用来配置插件挂载在ctx上的key的名称，默认值是helper,如果你配置了该属性，那么你可以通过ctx[loadName][filename][function]来使用
+};
+```
 ## 使用场景
 
 - Why and What: 将helper目录下的方法全部挂载在Helper上，将help分成不同文件，方便维护
@@ -75,6 +82,8 @@ exports.helper = {
         DemoController extends Controller{
             async index(){
                 this.ctx.helper.util.foo(); // 通过如下路径可以访问到你的方法
+                // 如果你在config中配置了loadName,那么这边你需要使用 this.ctx[loadName].util.foo来调用
+                例如，loadName为'util',则你需要使用 this.ctx.util.util.foo来调用
             }
 
         }

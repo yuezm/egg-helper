@@ -5,6 +5,4 @@
  * @member Config#helper
  * @property {String} SOME_KEY - some description
  */
-exports.helper = {
-
-};
+exports.helper = {};
