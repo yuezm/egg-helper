@@ -70,14 +70,14 @@ Add the util1.js file to the app/helper folder
     aslo you can use multiple levels of directories like app/helper/util/util1.js
     // app/helper/util/util1.js
     module.exports = app => {
-            return {
-                foo1() {
-                    // app is Application Object
-                    console.log(app);
-                    return 'hello helper';
-                },
-            };
+        return {
+            foo1() {
+                // app is Application Object
+                console.log(app);
+                return 'hello helper';
+            },
         };
+    };
 in Controller
 
     DemoController extends Controller{
