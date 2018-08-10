@@ -4,7 +4,7 @@ module.exports = app => {
     foo1() {
       // app is Application Object
       console.log(app);
-      return 'hello';
+      return 'hello helper';
     },
   };
 };

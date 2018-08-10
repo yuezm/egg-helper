@@ -59,32 +59,33 @@ Add the util1.js file to the app/helper folder
 
     // app/helper/util.js
     module.exports = app => {
-        return {
-            foo() {
-                // app is Application Object
-                console.log(app);
-                return 'hello helper';
-            },
-        };
+      return {
+        foo() {
+          // app is Application Object
+          console.log(app);
+          return 'hello helper';
+        },
+      };
     };
-    aslo you can use multiple levels of directories like app/helper/util/util1.js
+aslo you can use multiple levels of directories like app/helper/util/util1.js
+
     // app/helper/util/util1.js
     module.exports = app => {
-        return {
-            foo1() {
-                // app is Application Object
-                console.log(app);
-                return 'hello helper';
-            },
-        };
+      return {
+        foo1() {
+          // app is Application Object
+          console.log(app);
+          return 'hello helper';
+        },
+      };
     };
 in Controller
 
     DemoController extends Controller{
-        async index(){
-            this.ctx.helper.util.foo(); // You can access your method through the following path
-            this.ctx.helper.util.util1.foo1();// If you use a multi-level directory,You can access your method through the following path
-        }
+      async index(){
+        this.ctx.helper.util.foo(); // You can access your method through the following path
+        this.ctx.helper.util.util1.foo1();// If you use a multi-level directory,You can access your method through the following path
+      }
     }
 
 ## Questions & Suggestions

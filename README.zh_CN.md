@@ -57,39 +57,38 @@ exports.helper = {
 - Why and What: 将helper目录下的方法全部挂载在Helper上，将help分成不同文件，方便维护，当然原来的helper.js文件中的方法依然存在，不会覆盖
 - How:
     <!-- example here -->
-    在app/helper文件夹中增加 util.js文件 必须参照以下格式
+在app/helper文件夹中增加 util.js文件 必须参照以下格式
 
-        // app/helper/util.js
-        module.exports = app => {
-            return {
-                foo() {
-                    // app is Application的实例
-                    console.log(app);
-                    return 'hello helper';
-                },
-            };
-        };
-    如果你想使用两级或多级目录，例如
+    // app/helper/util.js
+    module.exports = app => {
+      return {
+        foo() {
+          // app is Application的实例
+          console.log(app);
+          return 'hello helper';
+        },
+      };
+    };
+如果你想使用两级或多级目录，例如
 
-        // app/helper/util/util1.js
-        module.exports = app => {
-            return {
-                foo1() {
-                    // app is Application的实例
-                    console.log(app);
-                    return 'hello helper';
-                },
-            };
-        };
-    在Controller中可以如下使用
+    //app/helper/util/util1.js
+    module.exports = app => {
+      return {
+        foo1() {
+          // app is Application的实例
+          console.log(app);
+          return 'hello helper';
+        },
+      };
+    };
+在Controller中可以如下使用
 
-        DemoController extends Controller{
-            async index(){
-                this.ctx.helper.util.foo(); // 通过如下路径可以访问到你的方法
-                this.ctx.helper.util.util1.foo1(); // 当你使用多级目录的时候，也是通过文件名来使用
-            }
-
-        }
+    DemoController extends Controller{
+      async index(){
+        this.ctx.helper.util.foo(); // 通过如下路径可以访问到你的方法
+        this.ctx.helper.util.util1.foo1(); // 当你使用多级目录的时候，也是通过文件名来使用
+      }
+    }
 
 ## 详细配置
 
