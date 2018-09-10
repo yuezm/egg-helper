@@ -1,5 +1,5 @@
 'use strict';
-module.exports = app => {
+module.exports = () => {
   return {
     foo3() {
       // app is Application Object
