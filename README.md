@@ -53,13 +53,16 @@ exports.helper = {
 };
 ```
 ### 使用场景
+在egg项目中,拆分工具函数,对工具函数单独维护
+### 优势
 - 插件目的是分离 app/extend/helper.js ,分成app/helper/\*\*/*.js 的单个文件,便于维护
 - 插件自动读取app/helper/\*\*/文件目录下所有文件,并挂载到ctx.helper
 - 插件不会覆盖 app/extend/helper.js
 
 
-## 如何使用
+### 如何使用
 
+> 创建工具函数
 ```
 // app/helper/util.js
 module.exports = app => {
@@ -85,6 +88,8 @@ module.exports = app => {
   };
 };
 ```
+>使用工具函数
+
 在Controller或Service中可以如下使用
 
 ```
@@ -96,21 +101,21 @@ DemoController extends Controller{
 }
 ```
 
-## 详细配置
+### 详细配置
 
 请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
 
-## 单元测试
+### 单元测试
 
 <!-- 描述如何在单元测试中使用此插件，例如 schedule 如何触发。无则省略。-->
 ```
 npm run test
 ```
 
-## 提问交流
+### 提问交流
 
 请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
 
-## License
+### License
 
 [MIT](LICENSE)
