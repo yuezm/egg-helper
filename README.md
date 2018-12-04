@@ -23,74 +23,93 @@
 <!--
 Description here.
 -->
-[egg-helper中文文档](README.zh_CN.md)
 
-## Install
+### 依赖说明
 
-```bash
-$ npm i egg-helper --save
-```
+#### 依赖的 egg 版本
 
-## Usage
+egg-helper 版本 | egg 1.x
+--- | ---
+1.x | 😁
+0.x | ❌
+
+#### 依赖的插件
+<!--
+
+如果有依赖其它插件，请在这里特别说明。如
+
+- security
+- multipart
+
+-->
+
+### 开启插件
 
 ```js
-// {app_root}/config/plugin.js
+// config/plugin.js
 exports.helper = {
   enable: true,
   package: 'egg-helper',
 };
 ```
+### 使用场景
+- 插件目的是分离 app/extend/helper.js ,分成app/helper/\*\*/*.js 的单个文件,便于维护
+- 插件自动读取app/helper/\*\*/文件目录下所有文件,并挂载到ctx.helper
+- 插件不会覆盖 app/extend/helper.js
 
-## Configuration
 
-```js
-// {app_root}/config/config.default.js
-exports.helper = {
+## 如何使用
 
+```
+// app/helper/util.js
+module.exports = app => {
+  return {
+    foo() {
+      // app is Application的实例
+      return 'hello helper';
+    },
+  };
 };
 ```
+如果你想使用多级目录，如下所示
 
-see [config/config.default.js](config/config.default.js) for more detail.
+```
+//app/helper/util/util1.js
+module.exports = app => {
+  return {
+    foo1() {
+      // app is Application的实例
+      console.log(app);
+      return 'hello helper';
+    },
+  };
+};
+```
+在Controller或Service中可以如下使用
 
-## Example
-**Divide egg's app/extend/help.js method into different files for easy maintenance**
-<!-- example here -->
-Add the util1.js file to the app/helper folder
+```
+DemoController extends Controller{
+  async index(){
+    this.ctx.helper.util.foo(); // 通过如下路径可以访问到你的方法
+    this.ctx.helper.util.util1.foo1(); // 当你使用多级目录的时候，也是通过文件名来使用
+  }
+}
+```
 
-    // app/helper/util.js
-    module.exports = app => {
-      return {
-        foo() {
-          // app is Application Object
-          console.log(app);
-          return 'hello helper';
-        },
-      };
-    };
-aslo you can use multiple levels of directories like app/helper/util/util1.js
+## 详细配置
 
-    // app/helper/util/util1.js
-    module.exports = app => {
-      return {
-        foo1() {
-          // app is Application Object
-          console.log(app);
-          return 'hello helper';
-        },
-      };
-    };
-in Controller
+请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
 
-    DemoController extends Controller{
-      async index(){
-        this.ctx.helper.util.foo(); // You can access your method through the following path
-        this.ctx.helper.util.util1.foo1();// If you use a multi-level directory,You can access your method through the following path
-      }
-    }
+## 单元测试
 
-## Questions & Suggestions
+<!-- 描述如何在单元测试中使用此插件，例如 schedule 如何触发。无则省略。-->
+```
+npm run test
+```
 
-Please open an issue [here](https://github.com/eggjs/egg/issues).
+## 提问交流
+
+请到 [egg issues](https://github.com/eggjs/egg/issues) 异步交流。
 
 ## License
 
