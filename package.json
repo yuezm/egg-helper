@@ -1,6 +1,6 @@
 {
   "name": "egg-helper",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "a egg plugins for Separate helper.js",
   "eggPlugin": {
     "name": "helper"
@@ -37,7 +37,6 @@
     "autod": "autod"
   },
   "files": [
-    "config",
     "app.js"
   ],
   "ci": {
