@@ -1,27 +1,11 @@
-sudo: true
+sudo: false
 language: node_js
 node_js:
   - '8'
   - '10'
-
-cache: npm
-stages:
-  - build
-  - name: deploy
-    if: branch=master
-
-jobs:
-  include:
-    - stage: build
-      install: npm i npminstall && npminstall
-      script: npm run ci
-      after_script: npminstall codecov && codecov
-
-    - stage: deploy
-      script: echo "start publish"
-      deploy:
-        provider: npm
-        email: "627230819@qq.com"
-        api_key: "$API_KEY"
-
-
+install:
+  - npm i npminstall && npminstall
+script:
+  - npm run ci
+after_script:
+  - npminstall codecov && codecov
